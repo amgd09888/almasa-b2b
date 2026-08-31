@@ -1,217 +1,391 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#111827">
 <title>الماسا B2B</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
-margin:0;
-font-family:Arial,Tahoma,sans-serif;
-background:#f3f5f7;
-color:#18212b
+ margin:0;
+ background:#eef1f4;
+ color:#17202a;
+ font-family:Arial,Tahoma,sans-serif
 }
-
 .app{
-max-width:480px;
-margin:auto;
-background:#fff;
-min-height:100vh;
-padding-bottom:80px
+ max-width:480px;
+ min-height:100vh;
+ margin:auto;
+ background:#fff;
+ padding-bottom:85px
 }
+.hidden{display:none!important}
+button{font-family:inherit;cursor:pointer}
 
-header{
-background:#151b23;
-color:white;
-padding:22px 18px;
-border-radius:0 0 25px 25px
+.auth{
+ min-height:100vh;
+ padding:30px 20px;
+ background:#f7f8fa
 }
-
+.brand{text-align:center;margin:20px 0 30px}
 .logo{
-font-size:28px;
-font-weight:bold
+ font-size:32px;
+ font-weight:900
+}
+.sub{color:#69727d;margin-top:7px}
+
+.syria-flag{
+ width:100%;
+ height:12px;
+ margin:20px 0;
+ display:flex;
+ overflow:hidden;
+ border-radius:6px
+}
+.syria-flag .g{background:#16853b;flex:1}
+.syria-flag .w{background:#fff;flex:1;border-top:1px solid #ddd;border-bottom:1px solid #ddd}
+.syria-flag .b{background:#111;flex:1}
+
+.auth-card{
+ background:#fff;
+ border-radius:22px;
+ padding:20px;
+ box-shadow:0 5px 25px #00000012
+}
+.auth-tabs{
+ display:flex;
+ gap:8px;
+ margin-bottom:18px
+}
+.auth-tabs button{
+ flex:1;
+ padding:12px;
+ border:1px solid #ddd;
+ border-radius:12px;
+ background:white
+}
+.auth-tabs .selected{
+ background:#111827;
+ color:white
 }
 
-.subtitle{
-margin-top:7px;
-opacity:.8
+.role{
+ display:flex;
+ gap:10px;
+ margin:15px 0
 }
-
-.search{
-margin-top:18px;
-background:white;
-color:#777;
-padding:14px;
-border-radius:13px
+.role button{
+ flex:1;
+ padding:15px 8px;
+ background:#fff;
+ border:1px solid #ddd;
+ border-radius:14px
 }
-
-section{
-padding:18px
-}
-
-.title{
-font-size:20px;
-font-weight:bold;
-margin-bottom:14px
-}
-
-.categories{
-display:flex;
-gap:10px;
-overflow-x:auto
-}
-
-.category{
-min-width:90px;
-padding:15px 8px;
-text-align:center;
-background:#fafafa;
-border:1px solid #ddd;
-border-radius:15px
-}
-
-.products{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px
-}
-
-.product{
-border:1px solid #e5e7eb;
-border-radius:17px;
-overflow:hidden;
-background:#fff
-}
-
-.product-image{
-height:125px;
-background:#e8eaed;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:45px
-}
-
-.product-info{
-padding:11px
-}
-
-.product-name{
-font-weight:bold
-}
-
-.price{
-font-weight:bold;
-margin-top:7px
-}
-
-.button{
-width:100%;
-border:0;
-border-radius:11px;
-padding:12px;
-margin-top:10px;
-background:#151b23;
-color:white;
-font-size:15px
-}
-
-.page{
-display:none
-}
-
-.page.active{
-display:block
-}
-
-.box{
-margin-bottom:13px;
-padding:15px;
-border-radius:15px;
-background:#f7f7f7
-}
-
-input,select{
-width:100%;
-padding:13px;
-border:1px solid #ddd;
-border-radius:11px;
-margin-top:6px
+.role .selected{
+ border:2px solid #111827;
+ background:#f1f3f5
 }
 
 label{
-display:block;
-margin-top:13px;
-font-weight:bold
+ display:block;
+ font-weight:bold;
+ margin:12px 0 5px
+}
+input,select{
+ width:100%;
+ padding:14px;
+ border:1px solid #d8dde3;
+ border-radius:12px;
+ outline:none;
+ font-size:15px
+}
+.primary{
+ width:100%;
+ border:0;
+ padding:14px;
+ border-radius:12px;
+ background:#111827;
+ color:#fff;
+ font-size:16px;
+ margin-top:15px
+}
+
+.header{
+ background:#111827;
+ color:#fff;
+ padding:20px 17px;
+ border-radius:0 0 25px 25px
+}
+.header-top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between
+}
+.logo-small{font-size:24px;font-weight:bold}
+.country{
+ font-size:13px;
+ background:#ffffff18;
+ padding:7px 10px;
+ border-radius:10px
+}
+.search{
+ margin-top:16px;
+ background:white;
+ color:#777;
+ padding:14px;
+ border-radius:13px
+}
+
+.section{padding:18px}
+.title{
+ font-size:20px;
+ font-weight:bold;
+ margin-bottom:13px
+}
+
+.categories{
+ display:flex;
+ gap:9px;
+ overflow-x:auto
+}
+.category{
+ min-width:90px;
+ padding:14px 8px;
+ text-align:center;
+ background:#fafafa;
+ border:1px solid #ddd;
+ border-radius:15px
+}
+
+.products{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px
+}
+.product{
+ border:1px solid #e5e7eb;
+ border-radius:17px;
+ overflow:hidden;
+ background:#fff
+}
+.product-image{
+ height:125px;
+ background:#e8eaed;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:45px
+}
+.product-info{padding:11px}
+.product-name{font-weight:bold}
+.price{
+ font-weight:bold;
+ margin-top:7px;
+ font-size:17px
+}
+.small{font-size:12px;color:#68717c;margin-top:5px}
+.btn{
+ width:100%;
+ border:0;
+ border-radius:11px;
+ padding:11px;
+ margin-top:10px;
+ background:#111827;
+ color:#fff
+}
+.outline{
+ background:white;
+ color:#111827;
+ border:1px solid #111827
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.box{
+ background:#f7f7f7;
+ padding:15px;
+ border-radius:15px;
+ margin-bottom:12px
+}
+.total{
+ display:flex;
+ justify-content:space-between;
+ font-size:18px;
+ font-weight:bold;
+ margin:10px 0
 }
 
 .status{
-display:flex;
-justify-content:space-between;
-margin-top:20px
+ display:flex;
+ justify-content:space-between;
+ margin-top:20px
 }
-
 .status-step{
-flex:1;
-text-align:center;
-font-size:11px
+ flex:1;
+ text-align:center;
+ font-size:10px
 }
-
 .dot{
-width:15px;
-height:15px;
-border-radius:50%;
-background:#151b23;
-margin:auto auto 7px
+ width:15px;
+ height:15px;
+ border-radius:50%;
+ background:#111827;
+ margin:auto auto 7px
 }
+.dot.off{background:#ccc}
 
-.dot.off{
-background:#ccc
+.profile-head{
+ text-align:center;
+ padding:25px 10px
+}
+.avatar{
+ width:75px;
+ height:75px;
+ margin:auto;
+ border-radius:50%;
+ background:#111827;
+ color:white;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:30px
 }
 
 .bottom{
-position:fixed;
-bottom:0;
-left:50%;
-transform:translateX(-50%);
-width:min(480px,100%);
-background:white;
-border-top:1px solid #ddd;
-display:flex;
-justify-content:space-around;
-padding:9px 3px
+ position:fixed;
+ bottom:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:min(480px,100%);
+ background:white;
+ border-top:1px solid #ddd;
+ display:flex;
+ justify-content:space-around;
+ padding:8px 3px;
+ z-index:20
 }
-
 .bottom button{
-border:0;
-background:none;
-font-size:12px
+ border:0;
+ background:none;
+ font-size:12px;
+ color:#4b5563
+}
+.bottom b{
+ display:block;
+ font-size:21px;
+ margin-bottom:3px
 }
 
-.bottom b{
-display:block;
-font-size:22px;
-margin-bottom:3px
+.notice{
+ background:#f1f5f9;
+ padding:13px;
+ border-radius:12px;
+ margin-bottom:15px;
+ font-size:13px
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<!-- تسجيل الدخول -->
 
-<header>
+<div id="auth" class="auth">
 
-<div class="logo">
+<div class="brand">
+<div class="logo">الماسا B2B</div>
+<div class="sub">منصة التجارة والشحن بين سوريا والعراق</div>
+
+<div class="syria-flag">
+<div class="g"></div>
+<div class="w">★ ★ ★</div>
+<div class="b"></div>
+</div>
+
+</div>
+
+<div class="auth-card">
+
+<div class="auth-tabs">
+<button id="loginTab" class="selected" onclick="authMode('login')">
+تسجيل الدخول
+</button>
+<button id="registerTab" onclick="authMode('register')">
+إنشاء حساب
+</button>
+</div>
+
+<div id="loginForm">
+
+<label>رقم الهاتف</label>
+<input id="loginPhone" type="tel" placeholder="مثلاً 09xxxxxxxx">
+
+<label>كلمة المرور</label>
+<input id="loginPassword" type="password" placeholder="كلمة المرور">
+
+<button class="primary" onclick="login()">
+دخول
+</button>
+
+</div>
+
+<div id="registerForm" class="hidden">
+
+<label>الاسم</label>
+<input id="regName" placeholder="اسمك أو اسم الشركة">
+
+<label>رقم الهاتف</label>
+<input id="regPhone" type="tel" placeholder="رقم الهاتف">
+
+<label>كلمة المرور</label>
+<input id="regPassword" type="password" placeholder="كلمة المرور">
+
+<label>نوع الحساب</label>
+
+<div class="role">
+
+<button id="buyerRole" class="selected" onclick="chooseRole('buyer')">
+🇮🇶<br>
+<b>تاجر عراقي</b>
+</button>
+
+<button id="sellerRole" onclick="chooseRole('seller')">
+🇸🇾<br>
+<b>مورد سوري</b>
+</button>
+
+</div>
+
+<button class="primary" onclick="register()">
+إنشاء الحساب
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- التطبيق -->
+
+<div id="app" class="app hidden">
+
+<header class="header">
+
+<div class="header-top">
+
+<div class="logo-small">
 الماسا B2B
 </div>
 
-<div class="subtitle">
-منصة التجارة والشحن بين سوريا والعراق
+<div class="country" id="userRoleText">
+تاجر عراقي 🇮🇶
+</div>
+
 </div>
 
 <div class="search">
@@ -225,34 +399,91 @@ margin-bottom:3px
 
 <div id="market" class="page active">
 
-<section>
+<section class="section">
 
-<div class="title">
-التصنيفات
-</div>
+<div class="title">التصنيفات</div>
 
 <div class="categories">
 
 <div class="category">👕<br>ألبسة</div>
-
 <div class="category">👟<br>أحذية</div>
-
-<div class="category">🚗<br>سيارات</div>
-
+<div class="category">🚗<br>قطع سيارات</div>
 <div class="category">🏠<br>منزلية</div>
 
 </div>
 
 </section>
 
-
-<section>
+<section class="section">
 
 <div class="title">
 منتجات بالجملة
 </div>
 
-<div class="products" id="products"></div>
+<div id="products" class="products"></div>
+
+</section>
+
+</div>
+
+
+<!-- تفاصيل المنتج -->
+
+<div id="details" class="page">
+
+<section class="section">
+
+<button class="outline btn" onclick="showPage('market')">
+← رجوع للسوق
+</button>
+
+<div id="detailImage"
+class="product-image"
+style="height:220px;margin-top:15px">
+📦
+</div>
+
+<h2 id="detailName"></h2>
+
+<p>المورد: <b>مورد موثوق ✓</b></p>
+
+<h3 id="detailPrice"></h3>
+
+<div class="box">
+الحد الأدنى للطلب:
+<b id="detailMin"></b> قطعة
+</div>
+
+<label>الكمية</label>
+<input id="quantity" type="number">
+
+<div class="box" style="margin-top:15px">
+<div class="total">
+<span>قيمة المنتجات</span>
+<span id="productTotal">$0</span>
+</div>
+
+<div class="total">
+<span>الشحن التقديري</span>
+<span id="shipping">$0</span>
+</div>
+
+<div class="total">
+<span>عمولة الماسا</span>
+<span id="commission">$0</span>
+</div>
+
+<hr>
+
+<div class="total">
+<span>الإجمالي</span>
+<span id="grandTotal">$0</span>
+</div>
+</div>
+
+<button class="primary" onclick="createOrder()">
+🚚 تأكيد الطلب
+</button>
 
 </section>
 
@@ -263,55 +494,11 @@ margin-bottom:3px
 
 <div id="orders" class="page">
 
-<section>
+<section class="section">
 
-<div class="title">
-طلباتي 🚚
-</div>
+<div class="title">طلباتي 🚚</div>
 
-<div class="box">
-
-<b>طلب #10025</b>
-
-<p>
-ألبسة رجالية — 30 قطعة
-</p>
-
-<div class="status">
-
-<div class="status-step">
-<div class="dot"></div>
-تم الطلب
-</div>
-
-<div class="status-step">
-<div class="dot"></div>
-تم الاستلام
-</div>
-
-<div class="status-step">
-<div class="dot"></div>
-بالطريق
-</div>
-
-<div class="status-step">
-<div class="dot off"></div>
-التسليم
-</div>
-
-</div>
-
-</div>
-
-<div class="box">
-
-<b>طلب #10018</b>
-
-<p>
-تم التسليم بنجاح ✅
-</p>
-
-</div>
+<div id="ordersList"></div>
 
 </section>
 
@@ -322,57 +509,36 @@ margin-bottom:3px
 
 <div id="seller" class="page">
 
-<section>
+<section class="section">
 
 <div class="title">
 لوحة المورد السوري 🇸🇾
 </div>
 
+<div class="notice">
+أضف منتجاتك ليتمكن التجار في العراق من طلبها بالجملة.
+</div>
+
 <div class="box">
 
-<label>
-اسم المنتج
-</label>
+<label>اسم المنتج</label>
+<input id="productName" placeholder="مثلاً: حذاء رجالي">
 
-<input
-id="productName"
-placeholder="مثلاً: حذاء رجالي"
->
+<label>السعر بالدولار</label>
+<input id="productPrice" type="number" placeholder="مثلاً 25">
 
-<label>
-سعر الجملة بالدولار
-</label>
+<label>الحد الأدنى للطلب</label>
+<input id="productMin" type="number" placeholder="مثلاً 10">
 
-<input
-id="productPrice"
-type="number"
-placeholder="$"
->
-
-<label>
-الحد الأدنى للطلب
-</label>
-
-<input
-id="productMin"
-type="number"
-placeholder="عدد القطع"
->
-
-<button
-class="button"
-onclick="addProduct()"
->
-إضافة المنتج
+<button class="primary" onclick="addProduct()">
+➕ نشر المنتج
 </button>
 
 </div>
 
 <div class="box">
-
-عدد المنتجات:
-<b id="productCount">4</b>
-
+عدد المنتجات المنشورة:
+<b id="productCount">0</b>
 </div>
 
 </section>
@@ -384,107 +550,44 @@ onclick="addProduct()"
 
 <div id="account" class="page">
 
-<section>
+<section class="section">
 
-<div class="title">
-حسابي
+<div class="profile-head">
+
+<div class="avatar" id="avatar">
+👤
 </div>
 
-<div class="box">
+<h2 id="profileName">
+المستخدم
+</h2>
 
-<label>
-نوع الحساب
-</label>
-
-<select>
-
-<option>
-تاجر عراقي 🇮🇶
-</option>
-
-<option>
-مورد سوري 🇸🇾
-</option>
-
-</select>
-
-</div>
-
-<div class="box">
-📍 عناوين الاستلام والتسليم
-</div>
-
-<div class="box">
-💬 التواصل مع شركة الماسا
-</div>
-
-<div class="box">
-🔔 الإشعارات
-</div>
-
-</section>
-
-</div>
-
-
-<!-- تفاصيل المنتج -->
-
-<div id="details" class="page">
-
-<section>
-
-<button
-onclick="showPage('market')"
-style="border:0;background:none;font-size:18px"
->
-← رجوع
-</button>
-
-<div
-id="detailImage"
-class="product-image"
-style="margin-top:15px;height:220px"
->
-📦
-</div>
-
-<h2 id="detailName"></h2>
-
-<p>
-المورد: مورد موثوق ✓
+<p id="profileRole">
 </p>
 
-<h3 id="detailPrice"></h3>
-
-<div class="box">
-
-الحد الأدنى للطلب:
-<b id="detailMin"></b>
-قطعة
-
 </div>
 
-<label>
-الكمية
-</label>
+<div class="box">
+📞 <b>رقم الهاتف</b>
+<p id="profilePhone"></p>
+</div>
 
-<input
-id="quantity"
-type="number"
-value="10"
->
+<div class="box">
+🌍 سوريا 🇸🇾 ↔ العراق 🇮🇶
+<br><br>
+شركة الماسا للشحن
+</div>
 
-<button
-class="button"
-onclick="createOrder()"
->
-🚚 اطلب الآن
+<button class="primary" onclick="logout()">
+تسجيل الخروج
 </button>
 
 </section>
 
 </div>
 
+
+<!-- القائمة -->
 
 <nav class="bottom">
 
@@ -498,7 +601,7 @@ onclick="createOrder()"
 طلباتي
 </button>
 
-<button onclick="showPage('seller')">
+<button id="sellerNav" onclick="showPage('seller')">
 <b>📦</b>
 المورد
 </button>
@@ -515,49 +618,206 @@ onclick="createOrder()"
 
 <script>
 
-let products=[
+let selectedRole="buyer";
+let authType="login";
+let selectedProduct=null;
 
+let products=[
 {
 name:"حذاء رجالي",
 price:25,
 min:10,
 icon:"👟"
 },
-
 {
 name:"جاكيت رجالي",
 price:35,
 min:10,
 icon:"🧥"
 },
-
 {
 name:"أدوات منزلية",
 price:18,
 min:10,
 icon:"🏠"
 },
-
 {
 name:"قطعة سيارات",
 price:45,
 min:5,
 icon:"🚗"
 }
-
 ];
+
+let orders=JSON.parse(
+localStorage.getItem("almasa_orders")||"[]"
+);
+
+
+function authMode(mode){
+
+authType=mode;
+
+document
+.getElementById("loginForm")
+.classList.toggle("hidden",mode!=="login");
+
+document
+.getElementById("registerForm")
+.classList.toggle("hidden",mode!=="register");
+
+document
+.getElementById("loginTab")
+.classList.toggle("selected",mode==="login");
+
+document
+.getElementById("registerTab")
+.classList.toggle("selected",mode==="register");
+
+}
+
+
+function chooseRole(role){
+
+selectedRole=role;
+
+document
+.getElementById("buyerRole")
+.classList.toggle("selected",role==="buyer");
+
+document
+.getElementById("sellerRole")
+.classList.toggle("selected",role==="seller");
+
+}
+
+
+function register(){
+
+const name=
+document.getElementById("regName").value.trim();
+
+const phone=
+document.getElementById("regPhone").value.trim();
+
+const password=
+document.getElementById("regPassword").value;
+
+if(!name||!phone||!password){
+
+alert("يرجى تعبئة جميع المعلومات");
+
+return;
+
+}
+
+const user={
+name:name,
+phone:phone,
+password:password,
+role:selectedRole
+};
+
+localStorage.setItem(
+"almasa_user",
+JSON.stringify(user)
+);
+
+openApp(user);
+
+}
+
+
+function login(){
+
+const phone=
+document.getElementById("loginPhone").value.trim();
+
+const password=
+document.getElementById("loginPassword").value;
+
+const saved=
+localStorage.getItem("almasa_user");
+
+if(!saved){
+
+alert("لا يوجد حساب على هذا الجهاز. اختر إنشاء حساب.");
+
+return;
+
+}
+
+const user=JSON.parse(saved);
+
+if(user.phone!==phone||user.password!==password){
+
+alert("رقم الهاتف أو كلمة المرور غير صحيحة");
+
+return;
+
+}
+
+openApp(user);
+
+}
+
+
+function openApp(user){
+
+document
+.getElementById("auth")
+.classList.add("hidden");
+
+document
+.getElementById("app")
+.classList.remove("hidden");
+
+document.getElementById("profileName")
+.textContent=user.name;
+
+document.getElementById("profilePhone")
+.textContent=user.phone;
+
+if(user.role==="seller"){
+
+document.getElementById("profileRole")
+.textContent="مورد سوري 🇸🇾";
+
+document.getElementById("userRoleText")
+.textContent="مورد سوري 🇸🇾";
+
+document.getElementById("sellerNav")
+.style.display="block";
+
+}else{
+
+document.getElementById("profileRole")
+.textContent="تاجر عراقي 🇮🇶";
+
+document.getElementById("userRoleText")
+.textContent="تاجر عراقي 🇮🇶";
+
+document.getElementById("sellerNav")
+.style.display="none";
+
+}
+
+renderProducts();
+renderOrders();
+
+}
 
 
 function renderProducts(){
 
-const container=
+const box=
 document.getElementById("products");
 
-container.innerHTML="";
+box.innerHTML="";
 
 products.forEach((p,index)=>{
 
-container.innerHTML+=`
+box.innerHTML+=`
 
 <div class="product">
 
@@ -572,17 +832,15 @@ ${p.name}
 </div>
 
 <div class="price">
-$${p.price}
+$${Number(p.price).toFixed(2)}
 </div>
 
-<small>
+<div class="small">
 أقل طلب: ${p.min} قطعة
-</small>
+</div>
 
-<button
-class="button"
-onclick="openProduct(${index})"
->
+<button class="btn"
+onclick="openProduct(${index})">
 عرض المنتج
 </button>
 
@@ -602,40 +860,218 @@ document.getElementById("productCount")
 
 function openProduct(index){
 
-const p=products[index];
+selectedProduct=products[index];
 
 document.getElementById("detailName")
-.textContent=p.name;
-
-document.getElementById("detailPrice")
-.textContent="$"+p.price;
-
-document.getElementById("detailMin")
-.textContent=p.min;
+.textContent=selectedProduct.name;
 
 document.getElementById("detailImage")
-.textContent=p.icon;
+.textContent=selectedProduct.icon;
+
+document.getElementById("detailPrice")
+.textContent=
+"$"+Number(selectedProduct.price).toFixed(2);
+
+document.getElementById("detailMin")
+.textContent=selectedProduct.min;
 
 document.getElementById("quantity")
-.value=p.min;
+.value=selectedProduct.min;
+
+updateTotal();
 
 showPage("details");
 
 }
 
 
+document
+.getElementById("quantity")
+.addEventListener("input",updateTotal);
+
+
+function updateTotal(){
+
+if(!selectedProduct)return;
+
+let qty=
+Number(document.getElementById("quantity").value)
+||selectedProduct.min;
+
+let productTotal=
+selectedProduct.price*qty;
+
+/*
+حساب تجريبي:
+الشحن 10% من قيمة البضاعة
+العمولة 2%
+يمكن تغييرها لاحقاً من لوحة الإدارة
+*/
+
+let shipping=
+productTotal*0.10;
+
+let commission=
+productTotal*0.02;
+
+let total=
+productTotal+shipping+commission;
+
+document.getElementById("productTotal")
+.textContent="$"+productTotal.toFixed(2);
+
+document.getElementById("shipping")
+.textContent="$"+shipping.toFixed(2);
+
+document.getElementById("commission")
+.textContent="$"+commission.toFixed(2);
+
+document.getElementById("grandTotal")
+.textContent="$"+total.toFixed(2);
+
+}
+
+
 function createOrder(){
 
-const quantity=
-document.getElementById("quantity").value;
+if(!selectedProduct)return;
+
+let qty=
+Number(document.getElementById("quantity").value);
+
+if(qty<selectedProduct.min){
 
 alert(
-"تم إرسال الطلب بنجاح!\n\n"+
-"الكمية: "+quantity+
-"\n\nستقوم شركة الماسا بتأكيد الشحن."
+"الحد الأدنى للطلب هو "+
+selectedProduct.min+
+" قطعة"
 );
 
+return;
+
+}
+
+let value=
+selectedProduct.price*qty;
+
+let shipping=value*0.10;
+let commission=value*0.02;
+
+let order={
+id:Date.now(),
+product:selectedProduct.name,
+quantity:qty,
+value:value,
+shipping:shipping,
+commission:commission,
+total:value+shipping+commission,
+status:"تم الطلب"
+};
+
+orders.unshift(order);
+
+localStorage.setItem(
+"almasa_orders",
+JSON.stringify(orders)
+);
+
+alert(
+"تم إنشاء الطلب بنجاح\n"+
+"رقم الطلب: #"+order.id+
+"\nالإجمالي: $"+order.total.toFixed(2)
+);
+
+renderOrders();
 showPage("orders");
+
+}
+
+
+function renderOrders(){
+
+const box=
+document.getElementById("ordersList");
+
+if(!orders.length){
+
+box.innerHTML=
+`
+<div class="box">
+لا توجد طلبات حالياً.
+</div>
+`;
+
+return;
+
+}
+
+box.innerHTML="";
+
+orders.forEach(order=>{
+
+box.innerHTML+=`
+
+<div class="box">
+
+<b>طلب #${order.id}</b>
+
+<p>
+${order.product}
+<br>
+الكمية: ${order.quantity} قطعة
+</p>
+
+<div class="total">
+<span>قيمة البضاعة</span>
+<span>$${order.value.toFixed(2)}</span>
+</div>
+
+<div class="total">
+<span>الشحن</span>
+<span>$${order.shipping.toFixed(2)}</span>
+</div>
+
+<div class="total">
+<span>العمولة</span>
+<span>$${order.commission.toFixed(2)}</span>
+</div>
+
+<hr>
+
+<div class="total">
+<span>الإجمالي</span>
+<span>$${order.total.toFixed(2)}</span>
+</div>
+
+<div class="status">
+
+<div class="status-step">
+<div class="dot"></div>
+تم الطلب
+</div>
+
+<div class="status-step">
+<div class="dot off"></div>
+استلام
+</div>
+
+<div class="status-step">
+<div class="dot off"></div>
+بالطريق
+</div>
+
+<div class="status-step">
+<div class="dot off"></div>
+التسليم
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
 
 }
 
@@ -643,33 +1079,27 @@ showPage("orders");
 function addProduct(){
 
 const name=
-document.getElementById("productName").value;
+document.getElementById("productName").value.trim();
 
 const price=
-Number(
-document.getElementById("productPrice").value
-);
+Number(document.getElementById("productPrice").value);
 
 const min=
-Number(
-document.getElementById("productMin").value
-)||1;
+Number(document.getElementById("productMin").value);
 
-if(!name||!price){
+if(!name||!price||!min){
 
-alert("أدخل اسم المنتج والسعر");
+alert("أدخل اسم المنتج والسعر والحد الأدنى");
 
 return;
 
 }
 
 products.push({
-
 name:name,
 price:price,
 min:min,
 icon:"📦"
-
 });
 
 document.getElementById("productName").value="";
@@ -678,7 +1108,7 @@ document.getElementById("productMin").value="";
 
 renderProducts();
 
-alert("تمت إضافة المنتج");
+alert("تم نشر المنتج بنجاح");
 
 }
 
@@ -700,9 +1130,32 @@ window.scrollTo(0,0);
 }
 
 
-renderProducts();
+function logout(){
+
+document
+.getElementById("app")
+.classList.add("hidden");
+
+document
+.getElementById("auth")
+.classList.remove("hidden");
+
+authMode("login");
+
+}
+
+
+const savedUser=
+localStorage.getItem("almasa_user");
+
+if(savedUser){
+
+openApp(JSON.parse(savedUser));
+
+}
 
 </script>
 
 </body>
-  </html>
+</html>
+```
