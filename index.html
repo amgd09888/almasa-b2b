@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>الماسا B2B</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,Tahoma,sans-serif;
+background:#f3f5f7;
+color:#18212b
+}
+
+.app{
+max-width:480px;
+margin:auto;
+background:#fff;
+min-height:100vh;
+padding-bottom:80px
+}
+
+header{
+background:#151b23;
+color:white;
+padding:22px 18px;
+border-radius:0 0 25px 25px
+}
+
+.logo{
+font-size:28px;
+font-weight:bold
+}
+
+.subtitle{
+margin-top:7px;
+opacity:.8
+}
+
+.search{
+margin-top:18px;
+background:white;
+color:#777;
+padding:14px;
+border-radius:13px
+}
+
+section{
+padding:18px
+}
+
+.title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:14px
+}
+
+.categories{
+display:flex;
+gap:10px;
+overflow-x:auto
+}
+
+.category{
+min-width:90px;
+padding:15px 8px;
+text-align:center;
+background:#fafafa;
+border:1px solid #ddd;
+border-radius:15px
+}
+
+.products{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px
+}
+
+.product{
+border:1px solid #e5e7eb;
+border-radius:17px;
+overflow:hidden;
+background:#fff
+}
+
+.product-image{
+height:125px;
+background:#e8eaed;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:45px
+}
+
+.product-info{
+padding:11px
+}
+
+.product-name{
+font-weight:bold
+}
+
+.price{
+font-weight:bold;
+margin-top:7px
+}
+
+.button{
+width:100%;
+border:0;
+border-radius:11px;
+padding:12px;
+margin-top:10px;
+background:#151b23;
+color:white;
+font-size:15px
+}
+
+.page{
+display:none
+}
+
+.page.active{
+display:block
+}
+
+.box{
+margin-bottom:13px;
+padding:15px;
+border-radius:15px;
+background:#f7f7f7
+}
+
+input,select{
+width:100%;
+padding:13px;
+border:1px solid #ddd;
+border-radius:11px;
+margin-top:6px
+}
+
+label{
+display:block;
+margin-top:13px;
+font-weight:bold
+}
+
+.status{
+display:flex;
+justify-content:space-between;
+margin-top:20px
+}
+
+.status-step{
+flex:1;
+text-align:center;
+font-size:11px
+}
+
+.dot{
+width:15px;
+height:15px;
+border-radius:50%;
+background:#151b23;
+margin:auto auto 7px
+}
+
+.dot.off{
+background:#ccc
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:min(480px,100%);
+background:white;
+border-top:1px solid #ddd;
+display:flex;
+justify-content:space-around;
+padding:9px 3px
+}
+
+.bottom button{
+border:0;
+background:none;
+font-size:12px
+}
+
+.bottom b{
+display:block;
+font-size:22px;
+margin-bottom:3px
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+<div class="logo">
+الماسا B2B
+</div>
+
+<div class="subtitle">
+منصة التجارة والشحن بين سوريا والعراق
+</div>
+
+<div class="search">
+🔎 ابحث عن منتج أو مورد
+</div>
+
+</header>
+
+
+<!-- السوق -->
+
+<div id="market" class="page active">
+
+<section>
+
+<div class="title">
+التصنيفات
+</div>
+
+<div class="categories">
+
+<div class="category">👕<br>ألبسة</div>
+
+<div class="category">👟<br>أحذية</div>
+
+<div class="category">🚗<br>سيارات</div>
+
+<div class="category">🏠<br>منزلية</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="title">
+منتجات بالجملة
+</div>
+
+<div class="products" id="products"></div>
+
+</section>
+
+</div>
+
+
+<!-- الطلبات -->
+
+<div id="orders" class="page">
+
+<section>
+
+<div class="title">
+طلباتي 🚚
+</div>
+
+<div class="box">
+
+<b>طلب #10025</b>
+
+<p>
+ألبسة رجالية — 30 قطعة
+</p>
+
+<div class="status">
+
+<div class="status-step">
+<div class="dot"></div>
+تم الطلب
+</div>
+
+<div class="status-step">
+<div class="dot"></div>
+تم الاستلام
+</div>
+
+<div class="status-step">
+<div class="dot"></div>
+بالطريق
+</div>
+
+<div class="status-step">
+<div class="dot off"></div>
+التسليم
+</div>
+
+</div>
+
+</div>
+
+<div class="box">
+
+<b>طلب #10018</b>
+
+<p>
+تم التسليم بنجاح ✅
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- المورد -->
+
+<div id="seller" class="page">
+
+<section>
+
+<div class="title">
+لوحة المورد السوري 🇸🇾
+</div>
+
+<div class="box">
+
+<label>
+اسم المنتج
+</label>
+
+<input
+id="productName"
+placeholder="مثلاً: حذاء رجالي"
+>
+
+<label>
+سعر الجملة بالدولار
+</label>
+
+<input
+id="productPrice"
+type="number"
+placeholder="$"
+>
+
+<label>
+الحد الأدنى للطلب
+</label>
+
+<input
+id="productMin"
+type="number"
+placeholder="عدد القطع"
+>
+
+<button
+class="button"
+onclick="addProduct()"
+>
+إضافة المنتج
+</button>
+
+</div>
+
+<div class="box">
+
+عدد المنتجات:
+<b id="productCount">4</b>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- الحساب -->
+
+<div id="account" class="page">
+
+<section>
+
+<div class="title">
+حسابي
+</div>
+
+<div class="box">
+
+<label>
+نوع الحساب
+</label>
+
+<select>
+
+<option>
+تاجر عراقي 🇮🇶
+</option>
+
+<option>
+مورد سوري 🇸🇾
+</option>
+
+</select>
+
+</div>
+
+<div class="box">
+📍 عناوين الاستلام والتسليم
+</div>
+
+<div class="box">
+💬 التواصل مع شركة الماسا
+</div>
+
+<div class="box">
+🔔 الإشعارات
+</div>
+
+</section>
+
+</div>
+
+
+<!-- تفاصيل المنتج -->
+
+<div id="details" class="page">
+
+<section>
+
+<button
+onclick="showPage('market')"
+style="border:0;background:none;font-size:18px"
+>
+← رجوع
+</button>
+
+<div
+id="detailImage"
+class="product-image"
+style="margin-top:15px;height:220px"
+>
+📦
+</div>
+
+<h2 id="detailName"></h2>
+
+<p>
+المورد: مورد موثوق ✓
+</p>
+
+<h3 id="detailPrice"></h3>
+
+<div class="box">
+
+الحد الأدنى للطلب:
+<b id="detailMin"></b>
+قطعة
+
+</div>
+
+<label>
+الكمية
+</label>
+
+<input
+id="quantity"
+type="number"
+value="10"
+>
+
+<button
+class="button"
+onclick="createOrder()"
+>
+🚚 اطلب الآن
+</button>
+
+</section>
+
+</div>
+
+
+<nav class="bottom">
+
+<button onclick="showPage('market')">
+<b>🏪</b>
+السوق
+</button>
+
+<button onclick="showPage('orders')">
+<b>🚚</b>
+طلباتي
+</button>
+
+<button onclick="showPage('seller')">
+<b>📦</b>
+المورد
+</button>
+
+<button onclick="showPage('account')">
+<b>👤</b>
+حسابي
+</button>
+
+</nav>
+
+</div>
+
+
+<script>
+
+let products=[
+
+{
+name:"حذاء رجالي",
+price:25,
+min:10,
+icon:"👟"
+},
+
+{
+name:"جاكيت رجالي",
+price:35,
+min:10,
+icon:"🧥"
+},
+
+{
+name:"أدوات منزلية",
+price:18,
+min:10,
+icon:"🏠"
+},
+
+{
+name:"قطعة سيارات",
+price:45,
+min:5,
+icon:"🚗"
+}
+
+];
+
+
+function renderProducts(){
+
+const container=
+document.getElementById("products");
+
+container.innerHTML="";
+
+products.forEach((p,index)=>{
+
+container.innerHTML+=`
+
+<div class="product">
+
+<div class="product-image">
+${p.icon}
+</div>
+
+<div class="product-info">
+
+<div class="product-name">
+${p.name}
+</div>
+
+<div class="price">
+$${p.price}
+</div>
+
+<small>
+أقل طلب: ${p.min} قطعة
+</small>
+
+<button
+class="button"
+onclick="openProduct(${index})"
+>
+عرض المنتج
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("productCount")
+.textContent=products.length;
+
+}
+
+
+function openProduct(index){
+
+const p=products[index];
+
+document.getElementById("detailName")
+.textContent=p.name;
+
+document.getElementById("detailPrice")
+.textContent="$"+p.price;
+
+document.getElementById("detailMin")
+.textContent=p.min;
+
+document.getElementById("detailImage")
+.textContent=p.icon;
+
+document.getElementById("quantity")
+.value=p.min;
+
+showPage("details");
+
+}
+
+
+function createOrder(){
+
+const quantity=
+document.getElementById("quantity").value;
+
+alert(
+"تم إرسال الطلب بنجاح!\n\n"+
+"الكمية: "+quantity+
+"\n\nستقوم شركة الماسا بتأكيد الشحن."
+);
+
+showPage("orders");
+
+}
+
+
+function addProduct(){
+
+const name=
+document.getElementById("productName").value;
+
+const price=
+Number(
+document.getElementById("productPrice").value
+);
+
+const min=
+Number(
+document.getElementById("productMin").value
+)||1;
+
+if(!name||!price){
+
+alert("أدخل اسم المنتج والسعر");
+
+return;
+
+}
+
+products.push({
+
+name:name,
+price:price,
+min:min,
+icon:"📦"
+
+});
+
+document.getElementById("productName").value="";
+document.getElementById("productPrice").value="";
+document.getElementById("productMin").value="";
+
+renderProducts();
+
+alert("تمت إضافة المنتج");
+
+}
+
+
+function showPage(id){
+
+document
+.querySelectorAll(".page")
+.forEach(page=>{
+page.classList.remove("active");
+});
+
+document
+.getElementById(id)
+.classList.add("active");
+
+window.scrollTo(0,0);
+
+}
+
+
+renderProducts();
+
+</script>
+
+</body>
+  </html>
