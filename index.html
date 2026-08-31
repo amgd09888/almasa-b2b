@@ -6,147 +6,144 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>الماسا B2B</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 *{box-sizing:border-box}
 body{
-margin:0;
-background:#eef1f4;
-font-family:Arial,Tahoma,sans-serif;
-color:#17202a
+ margin:0;
+ background:#eef1f4;
+ font-family:Arial,Tahoma,sans-serif;
+ color:#17202a
 }
 .app{
-max-width:480px;
-margin:auto;
-min-height:100vh;
-background:white;
-padding-bottom:80px
+ max-width:480px;
+ min-height:100vh;
+ margin:auto;
+ background:#fff;
+ padding-bottom:80px
 }
 .hidden{display:none!important}
-button,input,select{font-family:inherit}
+button,input{font-family:inherit}
 button{cursor:pointer}
 
 .auth{
-min-height:100vh;
-padding:25px 18px;
-background:#f5f6f8
+ min-height:100vh;
+ padding:25px 18px;
+ background:#f5f6f8
 }
 .brand{text-align:center;margin:25px 0}
 .logo{font-size:32px;font-weight:900}
 .sub{color:#69727d;margin-top:8px}
 
 .flag{
-height:13px;
-display:flex;
-margin:20px 0;
-border-radius:8px;
-overflow:hidden
+ height:13px;
+ display:flex;
+ margin:20px 0;
+ border-radius:8px;
+ overflow:hidden
 }
-.flag .green{background:#16853b;flex:1}
-.flag .white{
-background:white;
-flex:1;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:4px;
-color:#d21f2b;
-font-size:8px;
-border-top:1px solid #ddd;
-border-bottom:1px solid #ddd
+.green{background:#16853b;flex:1}
+.white{
+ background:#fff;
+ flex:1;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#d21f2b;
+ font-size:8px;
+ border-top:1px solid #ddd;
+ border-bottom:1px solid #ddd
 }
-.flag .black{background:#111;flex:1}
+.black{background:#111;flex:1}
 
 .card{
-background:white;
-border-radius:20px;
-padding:20px;
-box-shadow:0 5px 25px #00000010
+ background:white;
+ border-radius:20px;
+ padding:20px;
+ box-shadow:0 5px 25px #00000010
 }
 
 .tabs{
-display:flex;
-gap:8px;
-margin-bottom:18px
+ display:flex;
+ gap:8px;
+ margin-bottom:18px
 }
 .tabs button{
-flex:1;
-padding:12px;
-border:1px solid #ddd;
-border-radius:12px;
-background:white
+ flex:1;
+ padding:12px;
+ border:1px solid #ddd;
+ border-radius:12px;
+ background:white
 }
 .tabs .active{
-background:#111827;
-color:white
+ background:#111827;
+ color:white
 }
 
 label{
-display:block;
-font-weight:bold;
-margin:12px 0 6px
+ display:block;
+ font-weight:bold;
+ margin:12px 0 6px
 }
-input,select{
-width:100%;
-padding:14px;
-border:1px solid #d5d9df;
-border-radius:11px;
-font-size:15px
+input{
+ width:100%;
+ padding:14px;
+ border:1px solid #d5d9df;
+ border-radius:11px;
+ font-size:15px
 }
 
 .role{
-display:flex;
-gap:10px;
-margin:15px 0
+ display:flex;
+ gap:10px;
+ margin:15px 0
 }
 .role button{
-flex:1;
-padding:14px;
-background:white;
-border:1px solid #ddd;
-border-radius:14px
+ flex:1;
+ padding:14px;
+ background:white;
+ border:1px solid #ddd;
+ border-radius:14px
 }
 .role button.active{
-border:2px solid #111827;
-background:#f1f3f5
+ border:2px solid #111827;
+ background:#f1f3f5
 }
 
 .primary{
-width:100%;
-padding:14px;
-border:0;
-border-radius:12px;
-background:#111827;
-color:white;
-font-size:16px;
-margin-top:15px
+ width:100%;
+ padding:14px;
+ border:0;
+ border-radius:12px;
+ background:#111827;
+ color:white;
+ font-size:16px;
+ margin-top:15px
 }
 
 .header{
-background:#111827;
-color:white;
-padding:20px 17px;
-border-radius:0 0 25px 25px
+ background:#111827;
+ color:white;
+ padding:20px 17px;
+ border-radius:0 0 25px 25px
 }
 .headerTop{
-display:flex;
-justify-content:space-between;
-align-items:center
+ display:flex;
+ justify-content:space-between;
+ align-items:center
 }
 .smallLogo{font-size:24px;font-weight:bold}
 .badge{
-background:#ffffff18;
-padding:7px 10px;
-border-radius:10px;
-font-size:12px
+ background:#ffffff18;
+ padding:7px 10px;
+ border-radius:10px;
+ font-size:12px
 }
 .search{
-margin-top:15px;
-background:white;
-color:#777;
-padding:13px;
-border-radius:12px
+ margin-top:15px;
+ background:white;
+ color:#777;
+ padding:13px;
+ border-radius:12px
 }
 
 .page{display:none}
@@ -154,135 +151,135 @@ border-radius:12px
 
 .section{padding:18px}
 .title{
-font-size:20px;
-font-weight:bold;
-margin-bottom:14px
+ font-size:20px;
+ font-weight:bold;
+ margin-bottom:14px
 }
 
 .categories{
-display:flex;
-gap:9px;
-overflow-x:auto
+ display:flex;
+ gap:9px;
+ overflow-x:auto
 }
 .category{
-min-width:90px;
-padding:14px 8px;
-text-align:center;
-background:#fafafa;
-border:1px solid #ddd;
-border-radius:14px
+ min-width:90px;
+ padding:14px 8px;
+ text-align:center;
+ background:#fafafa;
+ border:1px solid #ddd;
+ border-radius:14px
 }
 
 .products{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px
 }
 .product{
-border:1px solid #e5e7eb;
-border-radius:16px;
-overflow:hidden
+ border:1px solid #e5e7eb;
+ border-radius:16px;
+ overflow:hidden
 }
 .productImage{
-height:120px;
-background:#e8eaed;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:45px
+ height:120px;
+ background:#e8eaed;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:45px
 }
 .productInfo{padding:11px}
 .productName{font-weight:bold}
 .price{
-font-size:17px;
-font-weight:bold;
-margin-top:7px
+ font-size:17px;
+ font-weight:bold;
+ margin-top:7px
 }
 .small{
-font-size:12px;
-color:#68717c;
-margin-top:5px
+ font-size:12px;
+ color:#68717c;
+ margin-top:5px
 }
 .btn{
-width:100%;
-padding:11px;
-border:0;
-border-radius:10px;
-margin-top:10px;
-background:#111827;
-color:white
+ width:100%;
+ padding:11px;
+ border:0;
+ border-radius:10px;
+ margin-top:10px;
+ background:#111827;
+ color:white
 }
 
 .box{
-background:#f7f7f7;
-padding:15px;
-border-radius:14px;
-margin-bottom:12px
+ background:#f7f7f7;
+ padding:15px;
+ border-radius:14px;
+ margin-bottom:12px
 }
 
 .total{
-display:flex;
-justify-content:space-between;
-font-weight:bold;
-margin:10px 0
+ display:flex;
+ justify-content:space-between;
+ font-weight:bold;
+ margin:10px 0
 }
 
 .status{
-display:flex;
-justify-content:space-between;
-margin-top:20px
+ display:flex;
+ justify-content:space-between;
+ margin-top:20px
 }
 .statusStep{
-flex:1;
-text-align:center;
-font-size:10px
+ flex:1;
+ text-align:center;
+ font-size:10px
 }
 .dot{
-width:14px;
-height:14px;
-border-radius:50%;
-background:#111827;
-margin:auto auto 6px
+ width:14px;
+ height:14px;
+ border-radius:50%;
+ background:#111827;
+ margin:auto auto 6px
 }
 .dot.off{background:#ccc}
 
 .bottom{
-position:fixed;
-bottom:0;
-left:50%;
-transform:translateX(-50%);
-width:min(480px,100%);
-background:white;
-border-top:1px solid #ddd;
-display:flex;
-justify-content:space-around;
-padding:8px 3px;
-z-index:50
+ position:fixed;
+ bottom:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:min(480px,100%);
+ background:white;
+ border-top:1px solid #ddd;
+ display:flex;
+ justify-content:space-around;
+ padding:8px 3px;
+ z-index:50
 }
 .bottom button{
-border:0;
-background:none;
-font-size:12px;
-color:#4b5563
+ border:0;
+ background:none;
+ font-size:12px;
+ color:#4b5563
 }
 .bottom b{
-display:block;
-font-size:21px
+ display:block;
+ font-size:21px
 }
 
 .message{
-padding:12px;
-border-radius:10px;
-margin-top:12px;
-font-size:13px;
-background:#f1f5f9
+ padding:12px;
+ border-radius:10px;
+ margin-top:12px;
+ font-size:13px;
+ background:#f1f5f9
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<!-- تسجيل الدخول -->
 
 <div id="auth" class="auth">
 
@@ -319,35 +316,48 @@ onclick="showAuth('register')">
 
 </div>
 
+
+<!-- دخول -->
+
 <div id="loginForm">
 
-<label>البريد الإلكتروني</label>
-<input id="loginEmail" type="email"
-placeholder="example@email.com">
+<label>رقم الهاتف</label>
+
+<input id="loginPhone"
+type="tel"
+placeholder="09xxxxxxxx">
 
 <label>كلمة المرور</label>
-<input id="loginPassword" type="password"
+
+<input id="loginPassword"
+type="password"
 placeholder="كلمة المرور">
 
-<button class="primary" onclick="login()">
+<button class="primary"
+onclick="login()">
 دخول
 </button>
 
 </div>
 
 
+<!-- تسجيل -->
+
 <div id="registerForm" class="hidden">
 
 <label>الاسم</label>
+
 <input id="regName"
 placeholder="اسمك أو اسم الشركة">
 
-<label>البريد الإلكتروني</label>
-<input id="regEmail"
-type="email"
-placeholder="example@email.com">
+<label>رقم الهاتف</label>
+
+<input id="regPhone"
+type="tel"
+placeholder="09xxxxxxxx">
 
 <label>كلمة المرور</label>
+
 <input id="regPassword"
 type="password"
 placeholder="6 أحرف على الأقل">
@@ -371,19 +381,20 @@ onclick="selectRole('seller')">
 
 </div>
 
-<button class="primary" onclick="register()">
+<button class="primary"
+onclick="register()">
 إنشاء الحساب
 </button>
 
 </div>
 
-<div id="authMessage"></div>
+<div id="message"></div>
 
 </div>
 </div>
 
 
-<!-- APP -->
+<!-- التطبيق -->
 
 <div id="app" class="app hidden">
 
@@ -408,7 +419,7 @@ onclick="selectRole('seller')">
 </header>
 
 
-<!-- MARKET -->
+<!-- السوق -->
 
 <div id="market" class="page active">
 
@@ -430,7 +441,7 @@ onclick="selectRole('seller')">
 <section class="section">
 
 <div class="title">
-المنتجات
+منتجات بالجملة
 </div>
 
 <div id="products"
@@ -442,7 +453,7 @@ class="products">
 </div>
 
 
-<!-- DETAILS -->
+<!-- المنتج -->
 
 <div id="details" class="page">
 
@@ -461,25 +472,18 @@ style="height:220px;margin-top:15px">
 
 <h2 id="detailName"></h2>
 
-<p>
-المورد: مورد موثوق ✓
-</p>
-
 <h3 id="detailPrice"></h3>
 
 <div class="box">
-
 الحد الأدنى:
 <b id="detailMin"></b>
 قطعة
-
 </div>
 
 <label>الكمية</label>
 
 <input id="quantity"
 type="number"
-value="1"
 oninput="calculate()">
 
 <div class="box">
@@ -518,7 +522,7 @@ onclick="createOrder()">
 </div>
 
 
-<!-- ORDERS -->
+<!-- الطلبات -->
 
 <div id="orders" class="page">
 
@@ -535,7 +539,7 @@ onclick="createOrder()">
 </div>
 
 
-<!-- SELLER -->
+<!-- المورد -->
 
 <div id="seller" class="page">
 
@@ -548,15 +552,18 @@ onclick="createOrder()">
 <div class="box">
 
 <label>اسم المنتج</label>
+
 <input id="productName"
 placeholder="مثلاً حذاء رجالي">
 
 <label>السعر بالدولار</label>
+
 <input id="productPrice"
 type="number"
 placeholder="25">
 
 <label>الحد الأدنى</label>
+
 <input id="productMin"
 type="number"
 placeholder="10">
@@ -573,7 +580,7 @@ onclick="addProduct()">
 </div>
 
 
-<!-- ACCOUNT -->
+<!-- الحساب -->
 
 <div id="account" class="page">
 
@@ -584,9 +591,13 @@ onclick="addProduct()">
 </div>
 
 <div class="box">
+
 <b id="profileName"></b>
+
 <p id="profileRole"></p>
-<p id="profileEmail"></p>
+
+<p id="profilePhone"></p>
+
 </div>
 
 <button class="primary"
@@ -629,56 +640,93 @@ onclick="showPage('seller')">
 
 <script>
 
-/* =========================
-   SUPABASE
-========================= */
+/*
+====================================
+نسخة تجريبية بدون SMS
+====================================
 
-const SUPABASE_URL =
-"https://zqsbpdqfktlxfntiaqem.supabase.co";
+هذه النسخة تحفظ الحساب على نفس الجهاز.
 
-const SUPABASE_ANON_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpxc2JwZHFma3RseGZudGlhcWVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxODI1NDYsImV4cCI6MjEwMzc1ODU0Nn0.dijjXlxJvmB4ejrULfLvEp2dPNbOKfIa433Ob7gKPM4";
+بعد الانتهاء من التصميم سنربطها
+بتسجيل دخول حقيقي ورقم الهاتف/SMS.
+*/
 
-const db =
-supabase.createClient(
-SUPABASE_URL,
-SUPABASE_ANON_KEY
-);
-
-
-/* =========================
-   VARIABLES
-========================= */
 
 let selectedRole="buyer";
+
 let selectedProduct=null;
+
 let currentUser=null;
 
 
-/* =========================
-   AUTH UI
-========================= */
+/* تخزين الحسابات */
 
-function showAuth(mode){
+function getUsers(){
 
-document
-.getElementById("loginForm")
-.classList.toggle("hidden",mode!=="login");
-
-document
-.getElementById("registerForm")
-.classList.toggle("hidden",mode!=="register");
-
-document
-.getElementById("loginTab")
-.classList.toggle("active",mode==="login");
-
-document
-.getElementById("registerTab")
-.classList.toggle("active",mode==="register");
+return JSON.parse(
+localStorage.getItem("almasa_users") || "[]"
+);
 
 }
 
+
+function saveUsers(users){
+
+localStorage.setItem(
+"almasa_users",
+JSON.stringify(users)
+);
+
+}
+
+
+/* رسائل */
+
+function message(text){
+
+document.getElementById("message")
+.innerHTML=
+`<div class="message">${text}</div>`;
+
+}
+
+
+/* تبديل الدخول والتسجيل */
+
+function showAuth(type){
+
+document
+.getElementById("loginForm")
+.classList.toggle(
+"hidden",
+type!=="login"
+);
+
+document
+.getElementById("registerForm")
+.classList.toggle(
+"hidden",
+type!=="register"
+);
+
+document
+.getElementById("loginTab")
+.classList.toggle(
+"active",
+type==="login"
+);
+
+document
+.getElementById("registerTab")
+.classList.toggle(
+"active",
+type==="register"
+);
+
+}
+
+
+/* اختيار نوع الحساب */
 
 function selectRole(role){
 
@@ -686,157 +734,143 @@ selectedRole=role;
 
 document
 .getElementById("buyerRole")
-.classList.toggle("active",role==="buyer");
+.classList.toggle(
+"active",
+role==="buyer"
+);
 
 document
 .getElementById("sellerRole")
-.classList.toggle("active",role==="seller");
+.classList.toggle(
+"active",
+role==="seller"
+);
 
 }
 
 
-function authMessage(text){
+/* إنشاء حساب */
 
-document
-.getElementById("authMessage")
-.innerHTML=
-`<div class="message">${text}</div>`;
-
-}
-
-
-/* =========================
-   REGISTER
-========================= */
-
-async function register(){
+function register(){
 
 const name=
-document.getElementById("regName")
+document
+.getElementById("regName")
 .value.trim();
 
-const email=
-document.getElementById("regEmail")
+const phone=
+document
+.getElementById("regPhone")
 .value.trim();
 
 const password=
-document.getElementById("regPassword")
+document
+.getElementById("regPassword")
 .value;
 
-if(!name||!email||password.length<6){
+if(!name||!phone||password.length<6){
 
-authMessage(
-"تأكد من إدخال الاسم والبريد وكلمة مرور من 6 أحرف على الأقل."
+message(
+"يرجى تعبئة جميع المعلومات، وكلمة المرور يجب أن تكون 6 أحرف على الأقل."
 );
 
 return;
 
 }
 
-authMessage("جاري إنشاء الحساب...");
+const users=getUsers();
 
-const {data,error}=
-await db.auth.signUp({
-email:email,
-password:password
-});
+const exists=
+users.some(user=>user.phone===phone);
 
-if(error){
+if(exists){
 
-authMessage(error.message);
-
-return;
-
-}
-
-if(!data.user){
-
-authMessage("تعذر إنشاء الحساب.");
+message(
+"هذا الرقم مسجل مسبقاً."
+);
 
 return;
 
 }
 
-const {error:profileError}=
-await db
-.from("profiles")
-.insert({
-id:data.user.id,
+const user={
+
+id:Date.now(),
+
 name:name,
-phone:email,
+
+phone:phone,
+
+password:password,
+
 role:selectedRole
-});
 
-if(profileError){
+};
 
-authMessage(
-"تم إنشاء الحساب لكن حدث خطأ بحفظ الملف الشخصي: "+
-profileError.message
-);
+users.push(user);
 
-return;
-
-}
-
-authMessage(
-"تم إنشاء الحساب بنجاح. إذا طلب منك تأكيد البريد، افتح بريدك ثم سجل الدخول."
-);
-
-showAuth("login");
-
-}
-
-
-/* =========================
-   LOGIN
-========================= */
-
-async function login(){
-
-const email=
-document.getElementById("loginEmail")
-.value.trim();
-
-const password=
-document.getElementById("loginPassword")
-.value;
-
-if(!email||!password){
-
-authMessage("أدخل البريد وكلمة المرور.");
-
-return;
-
-}
-
-authMessage("جاري تسجيل الدخول...");
-
-const {data,error}=
-await db.auth.signInWithPassword({
-email:email,
-password:password
-});
-
-if(error){
-
-authMessage(error.message);
-
-return;
-
-}
-
-await openApp(data.user);
-
-}
-
-
-/* =========================
-   OPEN APP
-========================= */
-
-async function openApp(user){
+saveUsers(users);
 
 currentUser=user;
+
+localStorage.setItem(
+"almasa_current_user",
+JSON.stringify(user)
+);
+
+openApp(user);
+
+}
+
+
+/* تسجيل الدخول */
+
+function login(){
+
+const phone=
+document
+.getElementById("loginPhone")
+.value.trim();
+
+const password=
+document
+.getElementById("loginPassword")
+.value;
+
+const users=getUsers();
+
+const user=
+users.find(
+u=>
+u.phone===phone &&
+u.password===password
+);
+
+if(!user){
+
+message(
+"رقم الهاتف أو كلمة المرور غير صحيحة."
+);
+
+return;
+
+}
+
+currentUser=user;
+
+localStorage.setItem(
+"almasa_current_user",
+JSON.stringify(user)
+);
+
+openApp(user);
+
+}
+
+
+/* فتح التطبيق */
+
+function openApp(user){
 
 document
 .getElementById("auth")
@@ -846,90 +880,114 @@ document
 .getElementById("app")
 .classList.remove("hidden");
 
-const {data:profile}=await db
-.from("profiles")
-.select("*")
-.eq("id",user.id)
-.single();
+document
+.getElementById("profileName")
+.textContent=user.name;
 
-if(profile){
+document
+.getElementById("profilePhone")
+.textContent=user.phone;
 
-document.getElementById("profileName")
-.textContent=profile.name;
+if(user.role==="seller"){
 
-document.getElementById("profileEmail")
-.textContent=user.email;
+document
+.getElementById("profileRole")
+.textContent=
+"مورد سوري 🇸🇾";
 
-if(profile.role==="seller"){
+document
+.getElementById("roleBadge")
+.textContent=
+"مورد سوري 🇸🇾";
 
-document.getElementById("profileRole")
-.textContent="مورد سوري 🇸🇾";
-
-document.getElementById("roleBadge")
-.textContent="مورد سوري 🇸🇾";
-
-document.getElementById("sellerButton")
+document
+.getElementById("sellerButton")
 .style.display="block";
 
 }else{
 
-document.getElementById("profileRole")
-.textContent="تاجر عراقي 🇮🇶";
+document
+.getElementById("profileRole")
+.textContent=
+"تاجر عراقي 🇮🇶";
 
-document.getElementById("roleBadge")
-.textContent="تاجر عراقي 🇮🇶";
+document
+.getElementById("roleBadge")
+.textContent=
+"تاجر عراقي 🇮🇶";
 
-document.getElementById("sellerButton")
+document
+.getElementById("sellerButton")
 .style.display="none";
 
 }
 
-}
+renderProducts();
 
-await loadProducts();
-await loadOrders();
-
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-async function loadProducts(){
-
-const {data,error}=
-await db
-.from("products")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(error){
-
-console.log(error);
-return;
+renderOrders();
 
 }
+
+
+/* منتجات تجريبية */
+
+let products=JSON.parse(
+localStorage.getItem("almasa_products") ||
+"null"
+);
+
+if(!products){
+
+products=[
+
+{
+id:1,
+name:"حذاء رجالي",
+price:25,
+min_quantity:10
+},
+
+{
+id:2,
+name:"جاكيت رجالي",
+price:35,
+min_quantity:10
+},
+
+{
+id:3,
+name:"أدوات منزلية",
+price:18,
+min_quantity:10
+},
+
+{
+id:4,
+name:"قطعة سيارات",
+price:45,
+min_quantity:5
+}
+
+];
+
+localStorage.setItem(
+"almasa_products",
+JSON.stringify(products)
+);
+
+}
+
+
+/* عرض المنتجات */
+
+function renderProducts(){
 
 const box=
 document.getElementById("products");
 
 box.innerHTML="";
 
-if(!data||!data.length){
-
-box.innerHTML=
-`
-<div class="box">
-لا توجد منتجات منشورة حالياً.
-</div>
-`;
-
-return;
-
-}
-
-data.forEach(product=>{
+products.forEach(product=>{
 
 box.innerHTML+=`
 
@@ -942,7 +1000,7 @@ box.innerHTML+=`
 <div class="productInfo">
 
 <div class="productName">
-${escapeHTML(product.name)}
+${product.name}
 </div>
 
 <div class="price">
@@ -950,11 +1008,13 @@ $${Number(product.price).toFixed(2)}
 </div>
 
 <div class="small">
-أقل طلب: ${product.min_quantity} قطعة
+أقل طلب:
+${product.min_quantity}
+قطعة
 </div>
 
 <button class="btn"
-onclick='openProduct(${JSON.stringify(product)})'>
+onclick="openProduct(${product.id})">
 عرض المنتج
 </button>
 
@@ -969,22 +1029,38 @@ onclick='openProduct(${JSON.stringify(product)})'>
 }
 
 
-function openProduct(product){
+/* فتح المنتج */
 
-selectedProduct=product;
+function openProduct(id){
 
-document.getElementById("detailName")
-.textContent=product.name;
+selectedProduct=
+products.find(
+p=>p.id===id
+);
 
-document.getElementById("detailPrice")
+if(!selectedProduct)return;
+
+document
+.getElementById("detailName")
 .textContent=
-"$"+Number(product.price).toFixed(2);
+selectedProduct.name;
 
-document.getElementById("detailMin")
-.textContent=product.min_quantity;
+document
+.getElementById("detailPrice")
+.textContent=
+"$"+
+Number(selectedProduct.price)
+.toFixed(2);
 
-document.getElementById("quantity")
-.value=product.min_quantity;
+document
+.getElementById("detailMin")
+.textContent=
+selectedProduct.min_quantity;
+
+document
+.getElementById("quantity")
+.value=
+selectedProduct.min_quantity;
 
 calculate();
 
@@ -993,56 +1069,87 @@ showPage("details");
 }
 
 
+/* حساب السعر */
+
 function calculate(){
 
 if(!selectedProduct)return;
 
-const qty=
-Number(document.getElementById("quantity").value)
-||selectedProduct.min_quantity;
+let quantity=
+Number(
+document.getElementById("quantity").value
+) ||
+selectedProduct.min_quantity;
 
-const value=
-Number(selectedProduct.price)*qty;
+let productTotal=
+selectedProduct.price*quantity;
 
-const shipping=
-value*0.10;
+let shipping=
+productTotal*0.10;
 
-const commission=
-value*0.02;
+let commission=
+productTotal*0.02;
 
-const total=
-value+shipping+commission;
+let total=
+productTotal+
+shipping+
+commission;
 
-document.getElementById("productTotal")
-.textContent="$"+value.toFixed(2);
+document
+.getElementById("productTotal")
+.textContent=
+"$"+productTotal.toFixed(2);
 
-document.getElementById("shipping")
-.textContent="$"+shipping.toFixed(2);
+document
+.getElementById("shipping")
+.textContent=
+"$"+shipping.toFixed(2);
 
-document.getElementById("commission")
-.textContent="$"+commission.toFixed(2);
+document
+.getElementById("commission")
+.textContent=
+"$"+commission.toFixed(2);
 
-document.getElementById("grandTotal")
-.textContent="$"+total.toFixed(2);
+document
+.getElementById("grandTotal")
+.textContent=
+"$"+total.toFixed(2);
 
 }
 
 
-/* =========================
-   CREATE ORDER
-========================= */
+/* إنشاء طلب */
 
-async function createOrder(){
+function createOrder(){
 
-if(!currentUser||!selectedProduct)return;
+if(!currentUser){
 
-const qty=
-Number(document.getElementById("quantity").value);
+alert("سجل الدخول أولاً");
 
-if(qty<selectedProduct.min_quantity){
+return;
+
+}
+
+if(currentUser.role!=="buyer"){
 
 alert(
-"الحد الأدنى للطلب هو "+
+"إنشاء الطلبات متاح للتاجر العراقي."
+);
+
+return;
+
+}
+
+let quantity=
+Number(
+document.getElementById("quantity").value
+);
+
+if(quantity<
+selectedProduct.min_quantity){
+
+alert(
+"الحد الأدنى هو "+
 selectedProduct.min_quantity+
 " قطعة"
 );
@@ -1051,78 +1158,74 @@ return;
 
 }
 
-const value=
-Number(selectedProduct.price)*qty;
+let value=
+selectedProduct.price*quantity;
 
-const shipping=value*0.10;
+let shipping=value*0.10;
 
-const commission=value*0.02;
+let commission=value*0.02;
 
-const total=
+let total=
 value+shipping+commission;
 
-const {error}=
-await db
-.from("orders")
-.insert({
-buyer_id:currentUser.id,
-product_id:selectedProduct.id,
-quantity:qty,
+let orders=
+JSON.parse(
+localStorage.getItem("almasa_orders")||
+"[]"
+);
+
+orders.unshift({
+
+id:Date.now(),
+
+product:selectedProduct.name,
+
+quantity:quantity,
+
 product_total:value,
-shipping_cost:shipping,
+
+shipping:shipping,
+
 commission:commission,
+
 total:total,
+
 status:"تم الطلب"
+
 });
 
-if(error){
-
-alert("حدث خطأ: "+error.message);
-
-return;
-
-}
+localStorage.setItem(
+"almasa_orders",
+JSON.stringify(orders)
+);
 
 alert(
 "تم إنشاء الطلب بنجاح\n"+
-"الإجمالي: $"+total.toFixed(2)
+"الإجمالي: $"+
+total.toFixed(2)
 );
 
-await loadOrders();
+renderOrders();
 
 showPage("orders");
 
 }
 
 
-/* =========================
-   ORDERS
-========================= */
+/* الطلبات */
 
-async function loadOrders(){
-
-if(!currentUser)return;
-
-const {data,error}=
-await db
-.from("orders")
-.select("*, products(name)")
-.eq("buyer_id",currentUser.id)
-.order("created_at",{ascending:false});
+function renderOrders(){
 
 const box=
 document.getElementById("ordersList");
 
-if(error){
+let orders=
+JSON.parse(
+localStorage.getItem("almasa_orders")||
+"[]"
+);
 
-box.innerHTML=
-`<div class="box">${error.message}</div>`;
-
-return;
-
-}
-
-if(!data||!data.length){
+if(!orders.length){
 
 box.innerHTML=
 `
@@ -1137,40 +1240,51 @@ return;
 
 box.innerHTML="";
 
-data.forEach(order=>{
+orders.forEach(order=>{
 
 box.innerHTML+=`
 
 <div class="box">
 
-<b>طلب #${order.id}</b>
+<b>
+طلب #${order.id}
+</b>
 
 <p>
-${escapeHTML(order.products?.name || "منتج")}
+${order.product}
 <br>
-الكمية: ${order.quantity}
+الكمية:
+${order.quantity}
 </p>
 
 <div class="total">
 <span>البضاعة</span>
-<span>$${Number(order.product_total).toFixed(2)}</span>
+<span>
+$${Number(order.product_total).toFixed(2)}
+</span>
 </div>
 
 <div class="total">
 <span>الشحن</span>
-<span>$${Number(order.shipping_cost).toFixed(2)}</span>
+<span>
+$${Number(order.shipping).toFixed(2)}
+</span>
 </div>
 
 <div class="total">
 <span>العمولة</span>
-<span>$${Number(order.commission).toFixed(2)}</span>
+<span>
+$${Number(order.commission).toFixed(2)}
+</span>
 </div>
 
 <hr>
 
 <div class="total">
 <span>الإجمالي</span>
-<span>$${Number(order.total).toFixed(2)}</span>
+<span>
+$${Number(order.total).toFixed(2)}
+</span>
 </div>
 
 <div class="status">
@@ -1206,78 +1320,97 @@ ${escapeHTML(order.products?.name || "منتج")}
 }
 
 
-/* =========================
-   ADD PRODUCT
-========================= */
+/* إضافة منتج للمورد */
 
-async function addProduct(){
+function addProduct(){
 
-if(!currentUser)return;
+if(!currentUser||
+currentUser.role!=="seller"){
+
+alert(
+"هذه الخاصية للمورد السوري."
+);
+
+return;
+
+}
 
 const name=
-document.getElementById("productName")
+document
+.getElementById("productName")
 .value.trim();
 
 const price=
 Number(
-document.getElementById("productPrice")
+document
+.getElementById("productPrice")
 .value
 );
 
 const min=
 Number(
-document.getElementById("productMin")
+document
+.getElementById("productMin")
 .value
 );
 
 if(!name||!price||!min){
 
-alert("أدخل اسم المنتج والسعر والحد الأدنى.");
+alert(
+"أدخل اسم المنتج والسعر والحد الأدنى."
+);
 
 return;
 
 }
 
-const {error}=
-await db
-.from("products")
-.insert({
-seller_id:currentUser.id,
+products.push({
+
+id:Date.now(),
+
 name:name,
+
 price:price,
+
 min_quantity:min
+
 });
 
-if(error){
+localStorage.setItem(
+"almasa_products",
+JSON.stringify(products)
+);
 
-alert("حدث خطأ: "+error.message);
+document
+.getElementById("productName")
+.value="";
 
-return;
+document
+.getElementById("productPrice")
+.value="";
+
+document
+.getElementById("productMin")
+.value="";
+
+renderProducts();
+
+alert(
+"تم نشر المنتج بنجاح."
+);
 
 }
 
-document.getElementById("productName").value="";
-document.getElementById("productPrice").value="";
-document.getElementById("productMin").value="";
 
-await loadProducts();
-
-alert("تم نشر المنتج.");
-
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
+/* الصفحات */
 
 function showPage(id){
 
 document
 .querySelectorAll(".page")
-.forEach(p=>{
-p.classList.remove("active");
-});
+.forEach(
+page=>page.classList.remove("active")
+);
 
 document
 .getElementById(id)
@@ -1288,13 +1421,13 @@ window.scrollTo(0,0);
 }
 
 
-/* =========================
-   LOGOUT
-========================= */
+/* تسجيل الخروج */
 
-async function logout(){
+function logout(){
 
-await db.auth.signOut();
+localStorage.removeItem(
+"almasa_current_user"
+);
 
 currentUser=null;
 
@@ -1311,44 +1444,23 @@ showAuth("login");
 }
 
 
-/* =========================
-   SECURITY DISPLAY
-========================= */
+/* الدخول التلقائي */
 
-function escapeHTML(value){
+const savedUser=
+localStorage.getItem(
+"almasa_current_user"
+);
 
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+if(savedUser){
 
-}
-
-
-/* =========================
-   AUTO LOGIN
-========================= */
-
-async function start(){
-
-const {data}=
-await db.auth.getSession();
-
-if(data.session){
-
-await openApp(data.session.user);
+openApp(
+JSON.parse(savedUser)
+);
 
 }
-
-}
-
-start();
 
 </script>
 
 </body>
 </html>
 ```
- 
